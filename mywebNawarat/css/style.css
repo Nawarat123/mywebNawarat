@@ -1,0 +1,420 @@
+body {
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ===== NAV BLACK BAR + WHITE TEXT ===== */
+.nav {
+  background-color: #000000;   /* แถบดำ */
+}
+
+.nav,
+.nav * {
+  color: #fff !important;   /* ตัวหนังสือขาวทั้งแถว */
+}
+
+/* จัดระยะให้ดูดี */
+.nav td {
+  padding: 14px 20px;
+}
+
+/* ลิงก์ */
+.nav a {
+  text-decoration: none;
+  margin-right: 16px;
+}
+
+/* hover (เลือกได้) */
+.nav a:hover {
+  color: #ddd !important;
+}
+
+
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section td {
+  padding: 30px 20px;
+}
+
+.title {
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #666;
+}
+
+/* TABLE CONTENT */
+.data-table td, 
+.data-table th {
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  text-align: left;
+}
+
+.data-table th {
+  background: #f7f7f7;
+  font-weight: 500;
+}
+
+/* FOOTER */
+.footer td {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #e5e5e5;
+  color: #777;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ใช้กับ section ทุกหน้า */
+.section {
+  animation: fadeSlide 0.6s ease;
+}
+
+/* ลิงก์ hover ดูแพงขึ้น */
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+
+/* ===== PAGE ANIMATION (ทั้งหน้า) ===== */
+.page {
+  animation: pageFade 0.8s ease;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ตารางค่อย ๆ ขึ้น */
+.data-table {
+  animation: tableFade 1s ease;
+}
+
+@keyframes tableFade {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* hover ตารางดูมีชีวิต */
+.data-table tr:hover td {
+  background: #f2f2f2;
+  transition: 0.3s;
+}
+
+/* ===== AUTO IMAGE SIZE SYSTEM ===== */
+.gallery-cell {
+  width: 33.33%;
+  height: 220px;              /* กล่องใหญ่ขึ้น */
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.gallery-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;        /* ปรับอัตโนมัติ ไม่บิด */
+  display: block;
+  margin: auto;
+}
+
+/* ===== FORM STYLE ===== */
+.data-table input,
+.data-table select,
+.data-table textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  background-color: #fafafa;
+}
+
+/* ตอนคลิก / โฟกัส */
+.data-table input:focus,
+.data-table select:focus,
+.data-table textarea:focus {
+  border-color: #111;
+  background-color: #fff;
+  outline: none;
+}
+
+/* textarea ให้ดูบาลานซ์ */
+.data-table textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===== BUTTON ===== */
+.data-table button {
+  padding: 10px 24px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #111;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* hover ปุ่ม */
+.data-table button:hover {
+  background-color: #333;
+}
+/* ===== BANNER ===== */
+.banner {
+  height: 320px;
+  background: url("../images/banner.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.banner.shrink {
+  height: 160px;
+}
+
+.banner-text {
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 20px 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.banner-text h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.banner-text p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+/* ===== GLOBAL SMOOTH ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.6;
+}
+.section {
+  animation: fadeSlide 0.6s ease;
+}
+
+.section:not(:first-child) {
+  border-top: 1px solid #f0f0f0;
+}
+.shoe-card {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+/* hover แล้วรองเท้าลอย */
+.shoe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.15);
+}
+
+/* รูปขยายเบา ๆ ตอน hover */
+.shoe-card img {
+  transition: transform 0.4s ease;
+}
+
+.shoe-card:hover img {
+  transform: scale(1.05);
+}
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.footer td {
+  background: #fafafa;
+  font-size: 13px;
+}
+/* =========================
+   BACKGROUND UPGRADE
+========================= */
+body {
+  background: #f4f5f7;   /* เทาอ่อน ดูแพง */
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+.container {
+  background: transparent;
+}
+
+/* =========================
+   SECTION LOOK PRO
+========================= */
+.section td {
+  padding: 50px 30px;
+}
+
+/* =========================
+   TITLE STYLE
+========================= */
+.title {
+  font-size: 44px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 16px;
+  max-width: 700px;
+}
+
+/* =========================
+   CARD (Top 5 / Gallery / Brand)
+========================= */
+.shoe-card,
+.brand-box,
+.data-table {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   CARD HOVER (ดูแพงขึ้น)
+========================= */
+.shoe-card {
+  transition: all 0.35s ease;
+}
+
+.shoe-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.14);
+}
+
+/* =========================
+   IMAGE FEEL PRO
+========================= */
+.shoe-card img,
+.brand-box img {
+  border-radius: 12px;
+}
+
+/* =========================
+   TABLE MODERN
+========================= */
+.data-table {
+  overflow: hidden;
+}
+
+.data-table th {
+  background: #fafafa;
+  font-weight: 500;
+}
+
+.data-table tr:hover td {
+  background: #f2f2f2;
+}
+
+/* =========================
+   BUTTON LOOK PRO
+========================= */
+button,
+.nav-btn {
+  background: #111;
+  border-radius: 999px;
+  padding: 10px 22px;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.nav-btn:hover {
+  background: #e10600;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeUpSoft 0.7s ease;
+}
+
+
+
+
+
+
